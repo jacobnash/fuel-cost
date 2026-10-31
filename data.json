@@ -1,0 +1,329 @@
+{
+ "asOf": {
+  "us": "2026-10-31",
+  "eu": "2026-10-26",
+  "fx": "2026-10-30"
+ },
+ "sources": {
+  "us": "AAA state gas price averages",
+  "eu": "EU Weekly Oil Bulletin, Euro-super 95 with taxes",
+  "fx": "ECB euro reference rate"
+ },
+ "usdPerEur": 1.1172,
+ "defaults": {
+  "mpg": 25,
+  "l100km": 6.5
+ },
+ "us": {
+  "Alabama": {
+   "milesPerYear": 16800,
+   "usdPerGallon": 3.75
+  },
+  "Alaska": {
+   "milesPerYear": 9800,
+   "usdPerGallon": 4.78
+  },
+  "Arizona": {
+   "milesPerYear": 13500,
+   "usdPerGallon": 4.44
+  },
+  "Arkansas": {
+   "milesPerYear": 15500,
+   "usdPerGallon": 3.78
+  },
+  "California": {
+   "milesPerYear": 13400,
+   "usdPerGallon": 5.91
+  },
+  "Colorado": {
+   "milesPerYear": 13000,
+   "usdPerGallon": 4.25
+  },
+  "Connecticut": {
+   "milesPerYear": 11900,
+   "usdPerGallon": 4.25
+  },
+  "Delaware": {
+   "milesPerYear": 13300,
+   "usdPerGallon": 3.95
+  },
+  "Florida": {
+   "milesPerYear": 14300,
+   "usdPerGallon": 3.88
+  },
+  "Georgia": {
+   "milesPerYear": 16700,
+   "usdPerGallon": 3.59
+  },
+  "Hawaii": {
+   "milesPerYear": 11000,
+   "usdPerGallon": 5.66
+  },
+  "Idaho": {
+   "milesPerYear": 13000,
+   "usdPerGallon": 4.56
+  },
+  "Illinois": {
+   "milesPerYear": 12600,
+   "usdPerGallon": 4.74
+  },
+  "Indiana": {
+   "milesPerYear": 16000,
+   "usdPerGallon": 3.84
+  },
+  "Iowa": {
+   "milesPerYear": 15000,
+   "usdPerGallon": 4.05
+  },
+  "Kansas": {
+   "milesPerYear": 14500,
+   "usdPerGallon": 3.91
+  },
+  "Kentucky": {
+   "milesPerYear": 15600,
+   "usdPerGallon": 3.91
+  },
+  "Louisiana": {
+   "milesPerYear": 14500,
+   "usdPerGallon": 3.72
+  },
+  "Maine": {
+   "milesPerYear": 14500,
+   "usdPerGallon": 4.26
+  },
+  "Maryland": {
+   "milesPerYear": 13200,
+   "usdPerGallon": 4.0
+  },
+  "Massachusetts": {
+   "milesPerYear": 11600,
+   "usdPerGallon": 4.18
+  },
+  "Michigan": {
+   "milesPerYear": 14000,
+   "usdPerGallon": 4.57
+  },
+  "Minnesota": {
+   "milesPerYear": 16000,
+   "usdPerGallon": 4.1
+  },
+  "Mississippi": {
+   "milesPerYear": 19000,
+   "usdPerGallon": 3.79
+  },
+  "Missouri": {
+   "milesPerYear": 17500,
+   "usdPerGallon": 3.86
+  },
+  "Montana": {
+   "milesPerYear": 15200,
+   "usdPerGallon": 4.32
+  },
+  "Nebraska": {
+   "milesPerYear": 15000,
+   "usdPerGallon": 4.22
+  },
+  "Nevada": {
+   "milesPerYear": 13000,
+   "usdPerGallon": 5.24
+  },
+  "New Hampshire": {
+   "milesPerYear": 12700,
+   "usdPerGallon": 4.18
+  },
+  "New Jersey": {
+   "milesPerYear": 12500,
+   "usdPerGallon": 4.13
+  },
+  "New Mexico": {
+   "milesPerYear": 18000,
+   "usdPerGallon": 4.13
+  },
+  "New York": {
+   "milesPerYear": 10500,
+   "usdPerGallon": 4.35
+  },
+  "North Carolina": {
+   "milesPerYear": 15200,
+   "usdPerGallon": 3.4
+  },
+  "North Dakota": {
+   "milesPerYear": 15500,
+   "usdPerGallon": 4.05
+  },
+  "Ohio": {
+   "milesPerYear": 14000,
+   "usdPerGallon": 4.17
+  },
+  "Oklahoma": {
+   "milesPerYear": 17500,
+   "usdPerGallon": 3.84
+  },
+  "Oregon": {
+   "milesPerYear": 11800,
+   "usdPerGallon": 4.8
+  },
+  "Pennsylvania": {
+   "milesPerYear": 11500,
+   "usdPerGallon": 4.44
+  },
+  "Rhode Island": {
+   "milesPerYear": 10800,
+   "usdPerGallon": 4.11
+  },
+  "South Carolina": {
+   "milesPerYear": 14600,
+   "usdPerGallon": 3.68
+  },
+  "South Dakota": {
+   "milesPerYear": 13500,
+   "usdPerGallon": 4.15
+  },
+  "Tennessee": {
+   "milesPerYear": 15700,
+   "usdPerGallon": 3.73
+  },
+  "Texas": {
+   "milesPerYear": 14800,
+   "usdPerGallon": 3.66
+  },
+  "Utah": {
+   "milesPerYear": 14000,
+   "usdPerGallon": 4.57
+  },
+  "Vermont": {
+   "milesPerYear": 13000,
+   "usdPerGallon": 4.32
+  },
+  "Virginia": {
+   "milesPerYear": 14000,
+   "usdPerGallon": 3.97
+  },
+  "Washington": {
+   "milesPerYear": 11500,
+   "usdPerGallon": 5.21
+  },
+  "West Virginia": {
+   "milesPerYear": 14000,
+   "usdPerGallon": 4.17
+  },
+  "Wisconsin": {
+   "milesPerYear": 15000,
+   "usdPerGallon": 4.29
+  },
+  "Wyoming": {
+   "milesPerYear": 22000,
+   "usdPerGallon": 4.37
+  }
+ },
+ "eu": {
+  "Austria": {
+   "kmPerYear": 13000,
+   "eurPerLitre": 1.772
+  },
+  "Belgium": {
+   "kmPerYear": 14000,
+   "eurPerLitre": 1.953
+  },
+  "Bulgaria": {
+   "kmPerYear": 9000,
+   "eurPerLitre": 1.625
+  },
+  "Croatia": {
+   "kmPerYear": 11000,
+   "eurPerLitre": 1.791
+  },
+  "Cyprus": {
+   "kmPerYear": 12000,
+   "eurPerLitre": 1.73
+  },
+  "Czechia": {
+   "kmPerYear": 11500,
+   "eurPerLitre": 1.798
+  },
+  "Denmark": {
+   "kmPerYear": 15000,
+   "eurPerLitre": 2.525
+  },
+  "Estonia": {
+   "kmPerYear": 13000,
+   "eurPerLitre": 1.887
+  },
+  "Finland": {
+   "kmPerYear": 14500,
+   "eurPerLitre": 2.346
+  },
+  "France": {
+   "kmPerYear": 12500,
+   "eurPerLitre": 2.181
+  },
+  "Germany": {
+   "kmPerYear": 13500,
+   "eurPerLitre": 2.167
+  },
+  "Greece": {
+   "kmPerYear": 9500,
+   "eurPerLitre": 2.143
+  },
+  "Hungary": {
+   "kmPerYear": 11000,
+   "eurPerLitre": 1.754
+  },
+  "Ireland": {
+   "kmPerYear": 17000,
+   "eurPerLitre": 1.971
+  },
+  "Italy": {
+   "kmPerYear": 10500,
+   "eurPerLitre": 2.006
+  },
+  "Latvia": {
+   "kmPerYear": 12000,
+   "eurPerLitre": 1.932
+  },
+  "Lithuania": {
+   "kmPerYear": 13000,
+   "eurPerLitre": 1.927
+  },
+  "Luxembourg": {
+   "kmPerYear": 15000,
+   "eurPerLitre": 1.746
+  },
+  "Malta": {
+   "kmPerYear": 9000,
+   "eurPerLitre": 1.34
+  },
+  "Netherlands": {
+   "kmPerYear": 13000,
+   "eurPerLitre": 2.313
+  },
+  "Poland": {
+   "kmPerYear": 11500,
+   "eurPerLitre": 1.467
+  },
+  "Portugal": {
+   "kmPerYear": 12000,
+   "eurPerLitre": 2.04
+  },
+  "Romania": {
+   "kmPerYear": 10000,
+   "eurPerLitre": 1.886
+  },
+  "Slovakia": {
+   "kmPerYear": 11000,
+   "eurPerLitre": 1.82
+  },
+  "Slovenia": {
+   "kmPerYear": 13000,
+   "eurPerLitre": 1.732
+  },
+  "Spain": {
+   "kmPerYear": 12000,
+   "eurPerLitre": 1.751
+  },
+  "Sweden": {
+   "kmPerYear": 12000,
+   "eurPerLitre": 1.56
+  }
+ }
+}

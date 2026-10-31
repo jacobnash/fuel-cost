@@ -12,70 +12,14 @@
 <title>Daily Fuel Cost Calculator</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<style>
-/* Layout: two road-sign panels (US green, EU blue) side by side, verdict strip, then a ranked list of every place */
-:root{
-  --bg:#f3f5f2; --surface:#ffffff; --fg:#17201b; --muted:#5b6a61; --line:#d6ddd8;
-  --us:#0b6b43; --us-soft:#e2f0e8; --eu:#1f4fa8; --eu-soft:#e3eaf7; --amber:#b86e00;
-  --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Barlow",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#111613; --surface:#1a211d; --fg:#e7ede9; --muted:#9aa8a0; --line:#2c3630;
-  --us:#3fbf83; --us-soft:#173326; --eu:#79a3f2; --eu-soft:#1a2640; --amber:#f0a73a; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#111613; --surface:#1a211d; --fg:#e7ede9; --muted:#9aa8a0; --line:#2c3630;
-  --us:#3fbf83; --us-soft:#173326; --eu:#79a3f2; --eu-soft:#1a2640; --amber:#f0a73a; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--body)}
-.wrap{max-width:1000px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:24px}
-h1{font:700 2.4rem/1.05 var(--display);margin:0;text-wrap:balance;letter-spacing:.01em}
-.lede{color:var(--muted);margin:6px 0 0;max-width:62ch}
-.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
-.sign{padding:12px 16px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.us .sign{background:var(--us)} .eu .sign{background:var(--eu)}
-:root:not([data-theme="light"]) .sign{color:#fff}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sign{color:#0d1210}}
-:root[data-theme="dark"] .sign{color:#0d1210}
-.sign h2{font:700 1.5rem/1 var(--display);margin:0;text-transform:uppercase;letter-spacing:.06em}
-.sign select{font:600 1rem var(--body);padding:6px 8px;border-radius:6px;border:0;max-width:60%;background:var(--surface);color:var(--fg)}
-.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}
-@media (max-width:440px){.fields{grid-template-columns:1fr 1fr}}
-label{display:grid;gap:4px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-input{font:500 1rem var(--mono);padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box}
-input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-.result{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:14px 16px;border-top:1px solid var(--line)}
-.us .result{background:var(--us-soft)} .eu .result{background:var(--eu-soft)}
-.big{font:700 2.6rem/1 var(--display);font-variant-numeric:tabular-nums}
-.us .big{color:var(--us)} .eu .big{color:var(--eu)}
-.sub{color:var(--muted);font-variant-numeric:tabular-nums}
-.verdict{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--amber);border-radius:10px;padding:14px 18px;font-size:1.1rem}
-.verdict b{font-variant-numeric:tabular-nums}
-.settings{display:flex;flex-wrap:wrap;gap:16px;align-items:end;color:var(--muted);font-size:.9rem}
-.settings label{width:140px}
-button{font:600 .9rem var(--body);padding:8px 12px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
-button:hover{border-color:var(--amber)}
-h3{font:700 1.4rem var(--display);margin:0 0 8px;text-transform:uppercase;letter-spacing:.05em}
-.rank{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
-.rows{display:grid;gap:3px}
-.row{display:grid;grid-template-columns:120px 1fr 64px;gap:10px;align-items:center;font-size:.88rem}
-.row .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row .bar{height:12px;border-radius:2px}
-.row.us .bar{background:var(--us)} .row.eu .bar{background:var(--eu)}
-.row .v{font-family:var(--mono);font-size:.82rem;text-align:right;font-variant-numeric:tabular-nums}
-.row.sel{font-weight:700} .row.sel .bar{outline:2px solid var(--amber);outline-offset:1px}
-.legend{display:flex;gap:16px;font-size:.85rem;color:var(--muted);margin-bottom:10px;flex-wrap:wrap}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
-.note{color:var(--muted);font-size:.85rem;max-width:75ch}
-@media (prefers-reduced-motion:no-preference){.row .bar{transition:width .3s ease}}
-</style>
+<link rel="stylesheet" href="style.css">
 
-<style>html{-webkit-text-size-adjust:100%}body{margin:0}</style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>What does a day of driving cost in fuel?</h1>
-    <p class="lede">Pick a US state and an EU country. Prices are from the week of 26–31 Oct 2026. Every number is editable: change the distance, the fuel economy or the price to match your own car and your own pump.</p>
+    <p class="lede">Pick a US state and an EU country. Every number is editable: change the distance, the fuel economy or the price to match your own car and your own pump.</p>
   </header>
 
   <div class="panels">
@@ -103,7 +47,7 @@ h3{font:700 1.4rem var(--display);margin:0 0 8px;text-transform:uppercase;letter
   <div class="verdict" id="verdict"></div>
 
   <div class="settings">
-    <label for="fx">US$ per €<input id="fx" type="number" min="0.1" step="0.01" value="1.1172"></label>
+    <label for="fx">US$ per €<input id="fx" type="number" min="0.1" step="0.01" ></label>
     <button id="reset" type="button">Reset to averages</button>
   </div>
 
@@ -113,47 +57,9 @@ h3{font:700 1.4rem var(--display);margin:0 0 8px;text-transform:uppercase;letter
     <div class="rows" id="rows"></div>
   </section>
 
-  <p class="note"><b>Prices:</b> US regular gas from the AAA state averages for 31 Oct 2026. EU Euro-super 95 with taxes from the EU Weekly Oil Bulletin for 26 Oct 2026. The exchange rate is the ECB reference rate for 30 Oct 2026. <b>Distances</b> are rough estimates: miles per licensed driver from federal highway data for US states, and average km per car each year for EU countries. The ranking uses the default fuel economy; your edits only change the two panels.</p>
+  <p class="note"><b>Prices:</b> <span id="sources">Loading prices…</span> <b>Distances</b> are rough estimates: miles per licensed driver from federal highway data for US states, and average km per car each year for EU countries. The ranking uses the default fuel economy; your edits only change the two panels.</p>
 </div>
 
-<script>
-const US={"Alabama":[16800,3.75],"Alaska":[9800,4.78],"Arizona":[13500,4.44],"Arkansas":[15500,3.78],"California":[13400,5.91],"Colorado":[13000,4.25],"Connecticut":[11900,4.25],"Delaware":[13300,3.95],"Florida":[14300,3.88],"Georgia":[16700,3.59],"Hawaii":[11000,5.66],"Idaho":[13000,4.56],"Illinois":[12600,4.74],"Indiana":[16000,3.84],"Iowa":[15000,4.05],"Kansas":[14500,3.91],"Kentucky":[15600,3.91],"Louisiana":[14500,3.72],"Maine":[14500,4.26],"Maryland":[13200,4.0],"Massachusetts":[11600,4.18],"Michigan":[14000,4.57],"Minnesota":[16000,4.1],"Mississippi":[19000,3.79],"Missouri":[17500,3.86],"Montana":[15200,4.32],"Nebraska":[15000,4.22],"Nevada":[13000,5.24],"New Hampshire":[12700,4.18],"New Jersey":[12500,4.13],"New Mexico":[18000,4.13],"New York":[10500,4.35],"North Carolina":[15200,3.4],"North Dakota":[15500,4.05],"Ohio":[14000,4.17],"Oklahoma":[17500,3.84],"Oregon":[11800,4.8],"Pennsylvania":[11500,4.44],"Rhode Island":[10800,4.11],"South Carolina":[14600,3.68],"South Dakota":[13500,4.15],"Tennessee":[15700,3.73],"Texas":[14800,3.66],"Utah":[14000,4.57],"Vermont":[13000,4.32],"Virginia":[14000,3.97],"Washington":[11500,5.21],"West Virginia":[14000,4.17],"Wisconsin":[15000,4.29],"Wyoming":[22000,4.37]};
-const EU={"Austria":[13000,1.772],"Belgium":[14000,1.953],"Bulgaria":[9000,1.625],"Croatia":[11000,1.791],"Cyprus":[12000,1.73],"Czechia":[11500,1.798],"Denmark":[15000,2.525],"Estonia":[13000,1.887],"Finland":[14500,2.346],"France":[12500,2.181],"Germany":[13500,2.167],"Greece":[9500,2.143],"Hungary":[11000,1.754],"Ireland":[17000,1.971],"Italy":[10500,2.006],"Latvia":[12000,1.932],"Lithuania":[13000,1.927],"Luxembourg":[15000,1.746],"Malta":[9000,1.34],"Netherlands":[13000,2.313],"Poland":[11500,1.467],"Portugal":[12000,2.04],"Romania":[10000,1.886],"Slovakia":[11000,1.82],"Slovenia":[13000,1.732],"Spain":[12000,1.751],"Sweden":[12000,1.56]};
-const MPG=25, L100=6.5, $=id=>document.getElementById(id);
-const usd=v=>'$'+v.toFixed(2), usd0=v=>'$'+Math.round(v).toLocaleString('en-US');
-const num=id=>Math.max(0,parseFloat($(id).value)||0);
-// cost per day, USD
-const usCost=(mi,mpg,p)=>mpg>0?mi/mpg*p:0;
-const euCost=(km,l100,p,fx)=>km*l100/100*p*fx;
-
-for(const k in US)$('us-sel').add(new Option(k,k));
-for(const k in EU)$('eu-sel').add(new Option(k,k));
-$('us-sel').value='California'; $('eu-sel').value='Sweden';
-
-function fillUS(){const[m,p]=US[$('us-sel').value];$('us-dist').value=Math.round(m/365);$('us-eff').value=MPG;$('us-price').value=p.toFixed(2)}
-function fillEU(){const[k,p]=EU[$('eu-sel').value];$('eu-dist').value=Math.round(k/365);$('eu-eff').value=L100;$('eu-price').value=p.toFixed(2)}
-
-function render(){
-  const fx=num('fx')||1.1172;
-  const u=usCost(num('us-dist'),num('us-eff'),num('us-price'));
-  const eLocal=num('eu-dist')*num('eu-eff')/100*num('eu-price'), e=eLocal*fx;
-  $('us-day').textContent=usd(u)+' / day';
-  $('us-year').textContent=usd0(u*365)+' a year';
-  $('eu-day').textContent=usd(e)+' / day';
-  $('eu-year').textContent='€'+eLocal.toFixed(2)+' a day · '+usd0(e*365)+' a year';
-  const us=$('us-sel').value, eu=$('eu-sel').value, d=u-e;
-  $('verdict').innerHTML = Math.abs(d)<0.005 ? `Driving in <b>${us}</b> and <b>${eu}</b> costs the same per day.`
-    : `A day of driving in <b>${d>0?us:eu}</b> costs <b>${usd(Math.abs(d))}</b> more than in <b>${d>0?eu:us}</b>. That is <b>${usd0(Math.abs(d)*365)}</b> a year.`;
-  const all=[...Object.entries(US).map(([n,[m,p]])=>({n,r:'us',v:usCost(m/365,MPG,p)})),
-             ...Object.entries(EU).map(([n,[k,p]])=>({n,r:'eu',v:euCost(k/365,L100,p,fx)}))].sort((a,b)=>b.v-a.v);
-  const max=all[0].v;
-  $('rows').innerHTML=all.map(x=>`<div class="row ${x.r}${x.n===us||x.n===eu?' sel':''}"><span class="n">${x.n}</span><span class="bar" style="width:${(x.v/max*100).toFixed(1)}%"></span><span class="v">${usd(x.v)}</span></div>`).join('');
-}
-$('us-sel').onchange=()=>{fillUS();render()};
-$('eu-sel').onchange=()=>{fillEU();render()};
-document.querySelectorAll('input').forEach(i=>i.addEventListener('input',render));
-$('reset').onclick=()=>{$('fx').value='1.1172';fillUS();fillEU();render()};
-fillUS();fillEU();render();
-</script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
